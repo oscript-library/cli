@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<testsuites tests="1" name="xUnitFor1C" time="0.052606" failures="1" skipped="0">
+    <testsuite name="">
+        <properties />
+        <testcase classname="cli-lexer_test" name="ТестДолжен_ПроверитьСпекЛексер" status="failure">
+            <failure message="{Модуль /home/khorevaa/Документы/github/1cli/src/Модули/СпекЛексер.os / Ошибка в строке: 130 / Отсуствует наименование длинной опции}    &#xA;					ВызватьИсключение &quot;Отсуствует наименование длинной опции&quot;;" />
+        </testcase>
+    </testsuite>
+</testsuites>
