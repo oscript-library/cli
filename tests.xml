@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<testsuites tests="2" name="xUnitFor1C" time="0.090875" failures="1" skipped="0">
+<testsuites tests="2" name="xUnitFor1C" time="0.085905" failures="0" skipped="0">
     <testsuite name="">
         <properties />
-        <testcase classname="cli-lexer_test" name="ТестДолжен_ПроверитьСпекЛексер" status="failure">
-            <failure message="{Модуль /home/khorevaa/Документы/github/1cli/src/Модули/СпекЛексер.os / Ошибка в строке: 207 / Неизвестная ошибка}    &#xA;				ВызватьИсключение &quot;Неизвестная ошибка&quot;;" />
-        </testcase>
+        <testcase classname="cli-lexer_test" name="ТестДолжен_ПроверитьСпекЛексер" status="passed" />
         <testcase classname="cli" name="ТестДолжен_ПроверитьРаботуКоманды" status="passed" />
     </testsuite>
 </testsuites>
