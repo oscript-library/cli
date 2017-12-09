@@ -93,32 +93,22 @@
 		
 	КонецЕсли;
 
-// 	if len(c.Spec) == 0 {
-// 		if len(c.options) > 0 {
-// 			c.Spec = "[OPTIONS] "
-// 		}
-// 		for _, arg := range c.args {
-// 			c.Spec += arg.Name + " "
-// 		}
-// 	}
+	токены = Новый Массив;//СпекЛексер.ПолучитьСпекТокены(Спек);
 
-// 	tokens, err := lexer.Tokenize(c.Spec)
-// 	if err != nil {
-// 		return err
-// 	}
 
-// 	params := parser.Params{
-// 		Spec:       c.Spec,
-// 		Options:    c.options,
-// 		OptionsIdx: c.optionsIdx,
-// 		Args:       c.args,
-// 		ArgsIdx:    c.argsIdx,
-// 	}
-// 	s, err := parser.Parse(tokens, params)
-// 	if err != nil {
-// 		return err
-// 	}
-// c.fsm = s
+	ПараметрыПарсера =  Новый Структура;
+	ПараметрыПарсера.Вставить("Спек", Спек);	
+	ПараметрыПарсера.Вставить("Опции", Опции);	
+	ПараметрыПарсера.Вставить("Аргументы", Аргументы);	
+	ПараметрыПарсера.Вставить("ОпцииИндекс", ОпцииИндекс);	
+	ПараметрыПарсера.Вставить("АргументыИндекс", АргументыИндекс);	
+	
+
+	// 	s, err := parser.Parse(tokens, params)
+	// 	if err != nil {
+	// 		return err
+	// 	}
+	// c.fsm = s
 
 КонецПроцедуры
 
