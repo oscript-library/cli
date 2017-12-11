@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<testsuites tests="2" name="xUnitFor1C" time="0.136761" failures="0" skipped="0">
+<testsuites tests="2" name="xUnitFor1C" time="0.085213" failures="0" skipped="0">
     <testsuite name="">
         <properties />
         <testcase classname="cli-lexer_test" name="ТестДолжен_ПроверитьСпекЛексер" status="passed" />
