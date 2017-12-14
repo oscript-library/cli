@@ -26,4 +26,4 @@ cache:
     - '$HOME/.sonar/cache'
 
 script:
-- ./travis.sh 
+- oscript /usr/share/oscript/lib/opm/src/opm.os test
