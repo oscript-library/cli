@@ -263,9 +263,6 @@
 		)
 	);
 	
-	// {"-p=<file-path>", []*Token{{TTShortOpt, "-p", 0}, {TTOptValue, "=<file-path>", 2}}},
-	// {"--path=<absolute-path>", []*Token{{TTLongOpt, "--path", 0}, {TTOptValue, "=<absolute-path>", 6}}},
-
 	Возврат ПроверочныеДанные
 
 КонецФункции	
