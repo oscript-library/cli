@@ -23,22 +23,23 @@ install:
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install 1testrunner
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install 1bdd
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install
-
+env:
+  global:
+  - CHANNEL=dev
+  
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.sonar/cache'
 jobs:
   include:
-    - if: branch = master
-      env: CHANNEL=stable
-    - if: branch = develop
-      env: CHANNEL=dev
-    - script: oscript /usr/share/oscript/lib/opm/src/opm.os test
+    - stage: Testing
+      script: oscript /usr/share/oscript/lib/opm/src/opm.os test
     - stage: build .ospx
       script: oscript /usr/share/oscript/lib/opm/src/opm.os build ./
       if: branch = master OR branch = develop
     - stage: deploy to github & hub.oscript.io
+      script: if [ $TRAVIS_BRANCH == "master" ]; then export CHANNEL=stable;fi 
       if: branch = master OR branch = develop 
       deploy:
         - provider: releases
