@@ -38,7 +38,7 @@ jobs:
     #  script: oscript /usr/share/oscript/lib/opm/src/opm.os test
     - stage: Сборка и публикация github & hub.oscript.io
       script: oscript /usr/share/oscript/lib/opm/src/opm.os build ./
-      if: branch = master OR branch = develop 
+      if: branch IN ('master', 'develop') 
       deploy:
         - provider: releases
           api_key: "$GITHUB_OAUTH_TOKEN"
@@ -56,4 +56,4 @@ jobs:
             export VERSION=${temp##*|}; 
             oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel $CHANNEL --file cli-$VERSION.ospx;
           on:
-            condition: branch = master OR branch = develop
+            condition: branch IN ('master', 'develop') 
