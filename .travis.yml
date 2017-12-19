@@ -34,8 +34,7 @@ jobs:
       env: CHANNEL=stable
     - if: branch = develop
       env: CHANNEL=dev
-    - stage: unit tests
-      script: oscript /usr/share/oscript/lib/opm/src/opm.os test
+    - script: oscript /usr/share/oscript/lib/opm/src/opm.os test
     - stage: build .ospx
       script: oscript /usr/share/oscript/lib/opm/src/opm.os build ./
       if: branch = master OR branch = develop
@@ -43,7 +42,7 @@ jobs:
       if: branch = master OR branch = develop 
       deploy:
         - provider: releases
-          api_key: $GITHUB_OAUTH_TOKEN"
+          api_key: "$GITHUB_OAUTH_TOKEN"
           file_glob: true
           file: cli*.ospx
           skip_cleanup: true
