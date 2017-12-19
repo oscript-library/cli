@@ -35,11 +35,8 @@ jobs:
   include:
     - stage: Тестирование 
       script: oscript /usr/share/oscript/lib/opm/src/opm.os test
-    - stage: Сборка (*.ospx)
-      script: oscript /usr/share/oscript/lib/opm/src/opm.os build ./
-      if: branch = master OR branch = develop
     - stage: Публикация github & hub.oscript.io
-      script: if [ $TRAVIS_BRANCH == "master" ]; then export CHANNEL=stable;fi 
+      script: if [ $TRAVIS_BRANCH == "master" ]; then export CHANNEL=stable;fi ; oscript /usr/share/oscript/lib/opm/src/opm.os build ./
       if: branch = master OR branch = develop 
       deploy:
         - provider: releases
