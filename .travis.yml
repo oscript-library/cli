@@ -51,7 +51,7 @@ jobs:
             tags: true
         - provider: script
           skip_cleanup: true
-          script: if '$TRAVIS_BRANCH' == 'master'; then export CHANNEL=stable;fi; oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel $CHANNEL --file ./cli-*.ospx;
+          script: if [ $TRAVIS_BRANCH == "master" ]; then export CHANNEL=stable;fi; oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel $CHANNEL --file ./cli-*.ospx;
           on:
             branch: develop
         - provider: script
