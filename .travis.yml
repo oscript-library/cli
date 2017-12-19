@@ -51,20 +51,12 @@ jobs:
             tags: true
         - provider: script
           skip_cleanup: true
-          script:
-            temp=`cat packagedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`;
-            export VERSION=${temp##*|}; 
-            echo $VERSION
-            ls -la ./
-            oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel dev --file ./cli-$VERSION.ospx ;
+          script: ./deploy-hub.oscript.sh
           on:
             branch: develop
         - provider: script
           skip_cleanup: true
-          script:
-            temp=`cat packagedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`;
-            export VERSION=${temp##*|}; 
-            oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel stable --file ./cli-$VERSION.ospx;
+          script: ./deploy-hub.oscript.sh
           on:
             branch: master
             tags: true
