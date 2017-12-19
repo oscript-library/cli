@@ -55,6 +55,8 @@ jobs:
             temp=`cat packagedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`;
             export VERSION=${temp##*|}; 
             oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel dev --file cli-$VERSION.ospx;
+            echo $VERSION
+            ls -la ./
           on:
             branch: develop
         - provider: script
@@ -62,8 +64,6 @@ jobs:
           script:
             temp=`cat packagedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`;
             export VERSION=${temp##*|}; 
-            echo $VERSION
-            ls -la ./
             oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel stable --file ./cli-$VERSION.ospx;
           on:
             branch: master
