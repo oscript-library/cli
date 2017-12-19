@@ -47,7 +47,7 @@ jobs:
           file: cli*.ospx
           skip_cleanup: true
           on:
-            condition: branch = master
+            branch: master
             tags: true
         - provider: script
           skip_cleanup: true
@@ -56,7 +56,7 @@ jobs:
             export VERSION=${temp##*|}; 
             oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel dev --file cli-$VERSION.ospx;
           on:
-            condition: branch = develop
+            branch: develop
         - provider: script
           skip_cleanup: true
           script:
@@ -64,5 +64,5 @@ jobs:
             export VERSION=${temp##*|}; 
             oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel stable --file cli-$VERSION.ospx;
           on:
-            condition: branch = master
+            branch: master
             tags: true
