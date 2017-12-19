@@ -23,11 +23,11 @@ install:
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install 1testrunner
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install 1bdd
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install
+
 env:
   global:
   - CHANNEL=dev
 
-script: 
 cache:
   directories:
     - '$HOME/.m2/repository'
@@ -37,8 +37,9 @@ jobs:
     #- stage: Тестирование 
     #  script: oscript /usr/share/oscript/lib/opm/src/opm.os test
     - stage: Сборка и публикация github & hub.oscript.io
-      script: oscript /usr/share/oscript/lib/opm/src/opm.os build ./
       if: branch IN ('master', 'develop') 
+      before_deploy:
+        - oscript /usr/share/oscript/lib/opm/src/opm.os build ./
       deploy:
         - provider: releases
           api_key: "$GITHUB_OAUTH_TOKEN"
