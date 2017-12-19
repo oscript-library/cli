@@ -119,35 +119,35 @@
 
 КонецФункции
 
-Процедура КомандаСкоростьРаботуКомандыПриложения(Команда) Экспорт
+Процедура КомандаСкоростьРаботуКомандыПриложения(Знач КомандаПриложения) Экспорт
 	
-	login = Команда.Опция("login", "", "Login for credential, e.g. username or email.").ТСтрока();
-	realm = Команда.Опция("realm", "", "Realm for credential, e.g. website or WiFi AP name.").ТСтрока();
-	note = Команда.Опция("note", "", "Note for credential.").ТСтрока();
-	noCopy = Команда.Опция("no-copy", false, "Do not copy generated password to the clipboard.").Флаг();
-	gen = Команда.Опция("gen", false, "Generate a password.").Флаг();
-	length = Команда.Опция("length", 0, "Password length.").Тчисло();
-	minLength = Команда.Опция("min-length", 30, "Minimum length password.").Тчисло();
-	maxL = Команда.Опция("max-length", 40, "Maximum length password.").Тчисло();
-	noUpper = Команда.Опция("no-upper", false, "Exclude uppercase characters in password.").Флаг();
-	noLow = Команда.Опция("no-lower", false, "Exclude lowercase characters in password.").Флаг();
-	noDigit = Команда.Опция("no-digit", false, "Exclude digit characters in password.").Флаг();
-	noSymbol = Команда.Опция("no-symbol", false, "Exclude symbol characters in password.").Флаг();
-	noSimilar = Команда.Опция("no-similar", false, "Exclude similar characters in password.").Флаг();
-	minUpper = Команда.Опция("min-upper", 0, "Minimum number of uppercase characters in password.").Тчисло();
-	maxUpper = Команда.Опция("max-upper", -1, "Maximum number of uppercase characters in password.").Тчисло();
-	minLow = Команда.Опция("min-lower", 0, "Minimum number of lowercase characters in password.").Тчисло();
-	maxLow = Команда.Опция("max-lower", -1, "Maximum number of lowercase characters in password.").Тчисло();
-	minDigit = Команда.Опция("min-digit", 0, "Minimum number of digit characters in password.").Тчисло();
-	maxDigit = Команда.Опция("max-digit", -1, "Maximum number of digit characters in password.").Тчисло();
-	minSym = Команда.Опция("min-symbol", 0, "Minimum number of symbol characters in password.").Тчисло();
-	maxSym = Команда.Опция("max-symbol", -1, "Maximum number of symbol characters in password.").Тчисло();
-	ex = Команда.Опция("exclude", "", "Exclude specific characters from password.").ТСтрока();
+	login = КомандаПриложения.Опция("login", "", "Login for credential, e.g. username or email.").ТСтрока();
+	realm = КомандаПриложения.Опция("realm", "", "Realm for credential, e.g. website or WiFi AP name.").ТСтрока();
+	note = КомандаПриложения.Опция("note", "", "Note for credential.").ТСтрока();
+	noCopy = КомандаПриложения.Опция("no-copy", false, "Do not copy generated password to the clipboard.").Флаг();
+	gen = КомандаПриложения.Опция("gen", false, "Generate a password.").Флаг();
+	length = КомандаПриложения.Опция("length", 0, "Password length.").Тчисло();
+	minLength = КомандаПриложения.Опция("min-length", 30, "Minimum length password.").Тчисло();
+	maxL = КомандаПриложения.Опция("max-length", 40, "Maximum length password.").Тчисло();
+	noUpper = КомандаПриложения.Опция("no-upper", false, "Exclude uppercase characters in password.").Флаг();
+	noLow = КомандаПриложения.Опция("no-lower", false, "Exclude lowercase characters in password.").Флаг();
+	noDigit = КомандаПриложения.Опция("no-digit", false, "Exclude digit characters in password.").Флаг();
+	noSymbol = КомандаПриложения.Опция("no-symbol", false, "Exclude symbol characters in password.").Флаг();
+	noSimilar = КомандаПриложения.Опция("no-similar", false, "Exclude similar characters in password.").Флаг();
+	minUpper = КомандаПриложения.Опция("min-upper", 0, "Minimum number of uppercase characters in password.").Тчисло();
+	maxUpper = КомандаПриложения.Опция("max-upper", -1, "Maximum number of uppercase characters in password.").Тчисло();
+	minLow = КомандаПриложения.Опция("min-lower", 0, "Minimum number of lowercase characters in password.").Тчисло();
+	maxLow = КомандаПриложения.Опция("max-lower", -1, "Maximum number of lowercase characters in password.").Тчисло();
+	minDigit = КомандаПриложения.Опция("min-digit", 0, "Minimum number of digit characters in password.").Тчисло();
+	maxDigit = КомандаПриложения.Опция("max-digit", -1, "Maximum number of digit characters in password.").Тчисло();
+	minSym = КомандаПриложения.Опция("min-symbol", 0, "Minimum number of symbol characters in password.").Тчисло();
+	maxSym = КомандаПриложения.Опция("max-symbol", -1, "Maximum number of symbol characters in password.").Тчисло();
+	ex = КомандаПриложения.Опция("exclude", "", "Exclude specific characters from password.").ТСтрока();
 
 КонецПроцедуры
 
-Процедура ВыполнитьКоманду(Знач Команда) Экспорт
-	Лог.Отладка("Полезная работа команды: %1", Команда.ПолучитьИмяКоманды());	
+Процедура ВыполнитьКоманду(Знач КомандаПриложения) Экспорт
+	Лог.Отладка("Полезная работа команды: %1", КомандаПриложения.ПолучитьИмяКоманды());	
 КонецПроцедуры 
 
 Лог = Логирование.ПолучитьЛог("oscript.lib.cli_command");

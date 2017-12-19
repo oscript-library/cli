@@ -26,19 +26,19 @@ install:
 env:
   global:
   - CHANNEL=dev
-  
+
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.sonar/cache'
 jobs:
   include:
-    - stage: Testing
+    - stage: Тестирование 
       script: oscript /usr/share/oscript/lib/opm/src/opm.os test
-    - stage: build .ospx
+    - stage: Сборка (*.ospx)
       script: oscript /usr/share/oscript/lib/opm/src/opm.os build ./
       if: branch = master OR branch = develop
-    - stage: deploy to github & hub.oscript.io
+    - stage: Публикация github & hub.oscript.io
       script: if [ $TRAVIS_BRANCH == "master" ]; then export CHANNEL=stable;fi 
       if: branch = master OR branch = develop 
       deploy:
