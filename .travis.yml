@@ -36,7 +36,11 @@ jobs:
     - stage: Тестирование 
       script: oscript /usr/share/oscript/lib/opm/src/opm.os test
     - stage: Публикация github & hub.oscript.io
-      script: if [ $TRAVIS_BRANCH == "master" ]; then export CHANNEL=stable;fi ; oscript /usr/share/oscript/lib/opm/src/opm.os build ./
+      script: if [ $TRAVIS_BRANCH == "master" ]; then export CHANNEL=stable;
+        fi
+        oscript /usr/share/oscript/lib/opm/src/opm.os build ./
+        temp=`cat packagedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`
+        export VERSION=${temp##*|}
       if: branch = master OR branch = develop 
       deploy:
         - provider: releases
@@ -49,6 +53,6 @@ jobs:
             tags: true
         - provider: script
           skip_cleanup: true
-          script: oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel $CHANNEL --file cli-$TRAVIS_TAG.ospx 
+          script: oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel $CHANNEL --file cli-$VERSION.ospx 
           on:
             tags: true
