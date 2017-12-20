@@ -2,6 +2,9 @@ sudo: required
 
 dist: trusty
 
+notifications:
+  email: false
+  
 before_install: 
   - if [ $TRAVIS_OS_NAME == "linux" ]; then 
       export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
@@ -15,15 +18,45 @@ before_install:
   - wget -O os.deb http://oscript.io/downloads/latest/onescript-engine_1.0.18_all.deb
   - sudo dpkg -i *.deb; sudo apt install -f
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install opm
-  - oscript
+
 install: 
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install 1testrunner
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install 1bdd
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install
+
+env:
+  global:
+  - CHANNEL=dev
+
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.sonar/cache'
-
-script:
-- oscript /usr/share/oscript/lib/opm/src/opm.os test
+jobs:
+  include:
+    - stage: Тестирование 
+      script: oscript /usr/share/oscript/lib/opm/src/opm.os test
+    - stage: Сборка и публикация github & hub.oscript.io
+      script: skip 
+      before_deploy:
+        - oscript /usr/share/oscript/lib/opm/src/opm.os build ./
+      deploy:
+        - provider: releases
+          api_key: "$GITHUB_OAUTH_TOKEN"
+          file_glob: true
+          file: cli*.ospx
+          skip_cleanup: true
+          on:
+            branch: master
+            tags: true
+        - provider: script
+          skip_cleanup: true
+          script: oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel dev --file ./cli-*.ospx;
+          on:
+            branch: develop
+        - provider: script
+          skip_cleanup: true
+          script: oscript /usr/share/oscript/lib/opm/src/opm.os push --token $GITHUB_OAUTH_TOKEN --channel stable --file ./cli-*.ospx;
+          on:
+            branch: master
+            tags: true

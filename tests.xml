@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<testsuites tests="1" name="xUnitFor1C" time="0.105891" failures="0" skipped="0">
-    <testsuite name="">
-        <properties />
-        <testcase classname="cli" name="ТестДолжен_ПроверитьПриложения" status="passed" />
-    </testsuite>
-</testsuites>
