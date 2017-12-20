@@ -34,8 +34,8 @@ cache:
     - '$HOME/.sonar/cache'
 jobs:
   include:
-    #- stage: Тестирование 
-    #  script: oscript /usr/share/oscript/lib/opm/src/opm.os test
+    - stage: Тестирование 
+      script: oscript /usr/share/oscript/lib/opm/src/opm.os test
     - stage: Сборка и публикация github & hub.oscript.io
       script: skip 
       before_deploy:
