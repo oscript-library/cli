@@ -20,7 +20,7 @@ before_install:
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install opm
 
 install: 
-  - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install 1testrunner
+  - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install 1testrunner@1.5.0
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install 1bdd
   - sudo oscript /usr/share/oscript/lib/opm/src/opm.os install
 

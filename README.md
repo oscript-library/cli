@@ -1,7 +1,12 @@
 # cli
 
+[![Stars](https://img.shields.io/github/stars/khorevaa/cli.svg?label=Github%20%E2%98%85&a)](https://github.com/khorevaa/cli/stargazers)
+[![Release](https://img.shields.io/github/tag/khorevaa/cli.svg?label=Last%20release&a)](https://github.com/khorevaa/cli/releases)
+[![Открытый чат проекта https://gitter.im//oscript-cli/Lobby](https://badges.gitter.im/khorevaa/cli.png)](https://gitter.im/oscript-cli/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/khorevaa/cli.svg?branch=master)](https://travis-ci.org/khorevaa/cli)
 [![Coverage Status](https://coveralls.io/repos/github/khorevaa/cli/badge.svg?branch=master)](https://coveralls.io/github/khorevaa/cli?branch=master)
+
 
 Данная библиотека для языка OScript, позволяет создавать консольные приложения с разбором и проверкой аргументов.
 
