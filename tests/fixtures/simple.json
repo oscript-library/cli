@@ -1,0 +1,8 @@
+{
+    "config":
+    {
+        "bool": "true",
+        "string": "Строка",
+        "int": 42
+    }
+}
