@@ -5,7 +5,7 @@ opm install;
 
 opm test;
 
-//oscript tasks/coverage.os
+# oscript tasks/coverage.os
 
 temp=`cat packgedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`
 version=${temp##*|}
