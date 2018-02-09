@@ -1,4 +1,4 @@
-# cli
+# `C`_ommand_ `L`_ine_ `I`_nterface_ для OScript
 
 [![Stars](https://img.shields.io/github/stars/khorevaa/cli.svg?label=Github%20%E2%98%85&a)](https://github.com/khorevaa/cli/stargazers)
 [![Release](https://img.shields.io/github/tag/khorevaa/cli.svg?label=Last%20release&a)](https://github.com/khorevaa/cli/releases)
@@ -7,6 +7,7 @@
 [![Build Status](https://travis-ci.org/khorevaa/cli.svg?branch=master)](https://travis-ci.org/khorevaa/cli)
 [![Coverage Status](https://coveralls.io/repos/github/khorevaa/cli/badge.svg?branch=master)](https://coveralls.io/github/khorevaa/cli?branch=master)
 
+Коротное название библиотеки `cli`
 
 Данная библиотека для языка OScript, позволяет создавать консольные приложения с разбором и проверкой аргументов.
 
