@@ -7,7 +7,7 @@ opm test;
 
 # oscript tasks/coverage.os
 
-temp=`cat packgedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`
+temp=`cat packagedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`
 version=${temp##*|}
 
 if [ "$TRAVIS_SECURE_ENV_VARS" == "true" ]; then
