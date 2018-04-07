@@ -3,7 +3,7 @@ opm install 1bdd;
 
 opm install; 
 
-opm run coverage;
+opm run test;
 
 
 # oscript ./tasks/coverage.os
