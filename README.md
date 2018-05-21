@@ -7,7 +7,7 @@
 [![Build Status](https://travis-ci.org/khorevaa/cli.svg?branch=master)](https://travis-ci.org/khorevaa/cli)
 [![Coverage Status](https://coveralls.io/repos/github/khorevaa/cli/badge.svg?branch=master)](https://coveralls.io/github/khorevaa/cli?branch=master)
 
-Коротное название библиотеки `cli`
+Короткое название библиотеки `cli`
 
 Данная библиотека для языка OScript, позволяет создавать консольные приложения с разбором и проверкой аргументов.
 
