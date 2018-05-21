@@ -33,7 +33,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 after_script:
-  - ./cc-test-reporter after-build --prefix ./coverage/ --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build --prefix "/home/travis/build/khorevaa/cli/coverage/" --exit-code $TRAVIS_TEST_RESULT
 
 before_cache: 
   # Save tagged docker images
