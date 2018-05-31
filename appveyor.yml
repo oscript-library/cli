@@ -50,7 +50,7 @@ build: off
 test_script:
 - cmd: >-
     
-    opm run coverage;
+    opm run coverage
     
     pushd %APPVEYOR_BUILD_FOLDER%
 
