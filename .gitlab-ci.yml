@@ -1,4 +1,4 @@
-image: mono:latest
+image: evilbeaver/onescript:1.0.19
 
 .job_template: &oscript_install  # Hidden key that defines an anchor named 'job_definition'
   before_script:
