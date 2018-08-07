@@ -13,26 +13,21 @@ image: mono:latest
 .job_template: &package_testing
   script:
     - set -e
-    - opm run coverage | tee /tmp/test.log
-    - grep 'Результат прогона тестов <Да>' /tmp/test.log
-
-.job_template: &package_deps
-  before_script:
     - opm install 1testrunner
     - opm install 1bdd
     - opm install coverage
     - opm install
+    - opm run coverage | tee /tmp/test.log
+    - grep 'Результат прогона тестов <Да>' /tmp/test.log
 
 test:1_0_20:
   stage: test
   <<: *oscript_install
-  <<: *package_deps
   <<: *package_testing
 
 test:night-build:
   stage: test
   <<: *oscript_install
-  <<: *package_deps
   <<: *package_testing
   variables:
     OSCRIPT_VERSION: night-build
