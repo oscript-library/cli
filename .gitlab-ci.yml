@@ -1,0 +1,40 @@
+image: mono:latest
+
+.job_template: &oscript_install  # Hidden key that defines an anchor named 'job_definition'
+  before_script:
+    - set -e
+    - echo "Устанавливаю версию OScript <$OSCRIPT_VERSION>"
+    - curl http://oscript.io/downloads/$OSCRIPT_VERSION/deb > oscript.deb 
+    - dpkg -i oscript.deb 
+    - rm -f oscript.deb
+  variables:
+    OSCRIPT_VERSION: 1_0_20
+
+.job_template: &package_testing
+  script:
+    - set -e
+    - opm run coverage | tee /tmp/test.log
+    - grep 'Результат прогона тестов <Да>' /tmp/test.log
+
+.job_template: &package_deps
+  before_script:
+    - opm install 1testrunner
+    - opm install 1bdd
+    - opm install coverage
+    - opm install
+
+test:1_0_20:
+  stage: test
+  <<: *oscript_install
+  <<: *package_deps
+  <<: *package_testing
+
+test:night-build:
+  stage: test
+  <<: *oscript_install
+  <<: *package_deps
+  <<: *package_testing
+  variables:
+    OSCRIPT_VERSION: night-build
+  allow_failure: true
+
