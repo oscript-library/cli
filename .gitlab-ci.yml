@@ -1,4 +1,4 @@
-image: evilbeaver/onescript:1.0.19
+image: mono:latest
 
 .job_template: &oscript_install  # Hidden key that defines an anchor named 'job_definition'
   before_script:
@@ -8,7 +8,7 @@ image: evilbeaver/onescript:1.0.19
     - dpkg -i oscript.deb 
     - rm -f oscript.deb
   variables:
-    OSCRIPT_VERSION: 1_0_20
+    OSCRIPT_VERSION: '1_0_20'
 
 .job_template: &package_testing
   script:
