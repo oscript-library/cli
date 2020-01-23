@@ -1,6 +1,6 @@
 set -e
 echo "Устанавливаю версию OScript <$OSCRIPT_VERSION>"
-curl -L http://oscript.io/downloads/$OSCRIPT_VERSION/deb&bitness=x64 > oscript.deb 
+curl -L http://oscript.io/downloads/$OSCRIPT_VERSION/deb?bitness=x64 > oscript.deb 
 dpkg -i oscript.deb 
 rm -f oscript.deb
 
