@@ -9,6 +9,7 @@ env:
   - PACKAGE_NAME=cli
   matrix:
   - OSCRIPT_VERSION=1_0_20
+  - OSCRIPT_VERSION=1_0_21
   - OSCRIPT_VERSION=night-build
 matrix:
   allow_failures:
