@@ -129,7 +129,7 @@
 		Б.Добавить("");
 		Б.Добавить("    $candidates = @()");
 		Б.Добавить("    if ($node.Commands.Count -gt 0) {");
-		Б.Добавить("        $candidates = @($node.Commands.Keys) + @($node.AliasMap.Keys)");
+		Б.Добавить("        $candidates = @($node.Commands.Keys)");
 		Б.Добавить("    } elseif ($node.ArgValues.Count -gt 0) {");
 		Б.Добавить("        $candidates = $node.ArgValues");
 		Б.Добавить("    }");
